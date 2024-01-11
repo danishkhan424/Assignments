@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai Calculator</title>
+    <style>
+        #container{
+            /* border: 1px dotted magenta; */
+            text-align: center;
+            font-size: 28px;
+        }
+        h1{
+            color: rgb(0,128,128);
+
+        }
+        #parent{
+            /* border: 1px ridge navy; */
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 12px;
+            width: 350px;
+            font-weight: 800;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(4,70px);
+            grid-template-rows: repeat(5,70px);
+            gap: 15px;
+            margin: auto;
+            padding: 2%;
+            /* grid-template-areas: 
+            "bla bla bla bla"
+            "one two thr plu"
+            "fou fiv six min"
+            "sev eig nin mul"
+            "c zer equ div"; */
+        }
+        #parent>div{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 12px;
+            line-height: 70px;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        #blank{
+            grid-area: 1/1/2/5;
+            /* grid-area: bla; */
+        }
+        #one{
+            grid-area: 2/1/3/2;
+            /* grid-area: one; */
+        }
+        #two{
+            /* grid-area: two; */
+            grid-area: 2/2/3/3;
+            
+        }
+        #three{
+            /* grid-area: thr; */
+            grid-area: 2/3/3/4;
+
+        }
+        #four{
+            /* grid-area: fou; */
+            grid-area: 3/1/4/2;
+        }
+        #five{
+            /* grid-area: fiv; */
+            grid-area: 3/2/4/3;
+        }
+        #six{
+            /* grid-area: six; */
+            grid-area: 3/3/4/4;
+        }
+        #seven{
+            /* grid-area: sev; */
+            grid-area: 4/1/5/2;
+        }
+        #eight{
+            /* grid-area: eig; */
+            grid-area: 4/2/5/3;
+        }
+        #nine{
+            /* grid-area: nin; */
+            grid-area: 4/3/5/4;
+        }
+        #zero{
+            /* grid-area: zer; */
+            grid-area: 5/2/6/3;
+        }
+        #plus{
+            color: white;
+            background-color: black;
+            /* grid-area: plu; */
+            grid-area: 2/4/3/5;
+        }
+        #minus{
+            color: white;
+            background-color: black;
+            /* grid-area: min; */
+            grid-area: 3/4/4/5;
+        }
+        #multi{
+            color: white;
+            background-color: black;
+            /* grid-area: mul; */
+            grid-area: 4/4/5/5;
+        }
+        #divide{
+            color: white;
+            background-color: black;
+            /* grid-area: div; */
+            grid-area: 5/4/6/5;
+        }
+        #equal{
+            color: white;
+            background-color: black;
+            /* grid-area: equ; */
+            grid-area: 5/3/6/4;
+        }
+        #c{
+            color: white;
+            background-color: red;
+            /* grid-area: c; */
+            grid-area: 5/1/6/2;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <h1>Masai Calculator</h1>
+        <div id="parent">
+            <div id="blank"></div>
+            <div id="one" >1</div>
+            <div id="two" >2</div>
+            <div id="three" >3</div>
+            <div id="four" >4</div>
+            <div id="five">5</div>
+            <div id="six" >6</div>
+            <div id="seven" >7</div>
+            <div id="eight" >8</div>
+            <div id="nine" >9</div>
+            <div id="zero" >0</div>
+            <div id="plus" >+</div>
+            <div id="minus">-</div>
+            <div id="multi">x</div>
+            <div id="divide">/</div>
+            <div id="equal">=</div>
+            <div id="c">C</div>
+        </div>
+    </div>
+  </body>
+</html>

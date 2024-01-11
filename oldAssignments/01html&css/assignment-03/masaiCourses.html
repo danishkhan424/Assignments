@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Courses</title>
+    <style>
+      #main {
+        /* border: 2px dashed; */
+        text-align: center;
+        font-family: sans-serif;
+      }
+      #main > h3 {
+        margin-bottom: -5.5px;
+      }
+      #main > img {
+        width: 190px;
+        margin-left: 295px;
+      }
+      #parent {
+        /* border: 1px dashed navy; */
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      #parent > div {
+        /* border: 1px solid rgb(126, 5, 76); */
+        width: 420px;
+        height: 550px;
+        border-radius: 30px;
+        margin: 20px;
+      }
+
+      #img1 {
+        /* border: 1px dashed green; */
+        text-align: center;
+        height: 35%;
+        background-color: #b7b8e5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+      }
+      #img2 {
+        /* border: 1px dashed green; */
+        text-align: center;
+        height: 35%;
+        background-color: #e5c9b7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+      }
+      .img {
+        height: 60%;
+        /* border: 1px dashed red; */
+      }
+      .text {
+        /* border: 1px dashed red; */
+        padding: 4%;
+        height: 45%;
+      }
+      .text > h3 {
+        margin-bottom: -8px;
+      }
+      .text > div {
+        font-size: 14px;
+      }
+      .button {
+        margin: auto;
+        width: 90%;
+        /* border: 1px solid green; */
+      }
+      button {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        background-color: red;
+        color: white;
+      }
+      a {
+        color: red;
+      }
+      a:hover {
+        color: red;
+        text-decoration: none;
+      }
+      tr {
+        height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <h1>Our Courses</h1>
+      <h3>
+        Practice-Based Learning Tracks,
+        <span style="color: red">Supercharged By A.I.</span>
+      </h3>
+      <img
+        src="https://www.masaischool.com/images/new-homepage/yellow-vector.svg"
+        alt="random image"
+      />
+
+      <div id="parent">
+        <div>
+          <div id="img1" >
+            <img class="img"
+              src="https://masai-website-images.s3.ap-south-1.amazonaws.com/full_stack1_329d6b5595.png"
+              alt="masai-website-images"
+            />
+          </div>
+          <div class="text">
+            <h3>Software Development</h3>
+            <p>Become job-redy in 30-35 weeks.</p>
+            <hr color="#CECCCD" size="0.5" />
+            <div>
+              <table>
+                <tr>
+                  <td>✅</td>
+                  <td>
+                    <strong> Opportunities:</strong> Full Stack Developer,
+                    Beckend Developer, Software Engineer & much more.
+                  </td>
+                </tr>
+                <tr>
+                  <td>✅</td>
+                  <td>100% live learning with expert instructors.</td>
+                </tr>
+                <tr>
+                  <td>✅</td>
+                  <td>Pay After Placement.</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="button"><button>VEIW DETAILS</button></div>
+        </div>
+
+        <div>
+          <div id="img2" >
+            <img class="img"
+              src="https://masai-website-images.s3.ap-south-1.amazonaws.com/backend_ea129d404e.png"
+              alt="masai-website-images"
+            />
+          </div>
+          <div class="text">
+            <h3>Data Analytics</h3>
+            <p>Become job-redy in 30 weeks.</p>
+            <hr color="#CECCCD" size="0.5" />
+            <div>
+              <table>
+                <tr>
+                  <td>✅</td>
+                  <td>
+                    <strong>Opportunities:</strong> Data Engineer, Data Analyst,
+                    Machine Learning Engineer & much more.
+                  </td>
+                </tr>
+                <tr>
+                  <td>✅</td>
+                  <td>
+                    Learn from export instructors and hands-on assignments.
+                  </td>
+                </tr>
+                <tr>
+                  <td>✅</td>
+                  <td>Pay After Placement.</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="button"><button>VEIW DETAILS</button></div>
+        </div>
+      </div>
+      <p>
+        If you are studying in <b>1st,2nd</b> or <b>pre-final</b> year of
+        college, <a href="https://www.prepleaf.com/?ref=masai">Click Here</a>
+      </p>
+    </div>
+  </body>
+</html>
