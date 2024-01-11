@@ -8,44 +8,39 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
-  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <script type="text/babel"></script>
- <script>
-   
-    let prop_parent = {
-      border: '2px solid black',
-      display: 'flex',
-      fontWeight: 'bold',
-      fontSize: '40px',
-      height: '200px',
-      width:'1300px',
-      margin:'auto',
-      marginTop:'40px',
-      backgroundColor:'rgb(255,228,196)'
-    };
-
-    let prop_child = {
-      border: '1px solid black',
-      height: '150px',
-      width: '150px',
-      margin:'10px',
-      marginTop: '25px'
-    };
-
-    const element = React.createElement("div",{id:"parent", style:prop_parent},[
-      React.createElement("div", {}, "parent"),
-
-      React.createElement("div",{id:"child",style:{...prop_child, backgroundColor: 'red' ,marginLeft:'250px'}},"1"),
-      React.createElement("div",{id:"child",style:{...prop_child, backgroundColor: 'yellow' }},"2"),
-      React.createElement("div",{id:"child",style:{...prop_child, backgroundColor: 'green' }},"3"),
-      React.createElement("div",{id:"child",style:{...prop_child, backgroundColor: 'purple'}},"4"),
-
-      
-    ]);
-    
-    const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
-    reactRoot.render(element);
-  </script>
 </html>
+<script
+  crossorigin
+  src="https://unpkg.com/react@18/umd/react.development.js"
+></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const container = {
+                      border: "2px solid",
+                      fontSize: "35px",
+                      backgroundColor: "rgb(255,228,196)"
+                    }
+
+  const parent = {
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: "-40px",
+                  height: "200px"
+                }                  
+  const child = {
+                  width: "150px",
+                  height: "150px",
+                  border: "2px solid",
+                  margin: "10px"
+                }
+
+  const Element = React.createElement("div",{id: "container", style: container},"parent", 
+                  React.createElement("div",{id:"parent", style: parent}, [React.createElement("div",{style: {backgroundColor: "red",...child}},1),React.createElement("div",{style:{backgroundColor: "yellow",...child}},2),React.createElement("div",{style:{backgroundColor: "green",...child}},3),React.createElement("div",{style:{backgroundColor: "purple",...child}},4)]))
+
+  ReactDOM.render(Element, document.getElementById("root"))
+</script>
