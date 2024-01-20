@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Checker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="container">
+        <h1>Check Your BMI</h1>
+        <p>Enter your weight and height below to check your BMI results</p>
+        <p>Put your weight in here (KG)</p>
+        <input type="text" name="" id="weight">
+        <p>And your height in here (CM)</p>
+        <input type="text" name="" id="height">
+        <br><br>
+        <input type="button" onclick="checkBMI()" style="font-family: poppins, serif;" value="Calculate BMI">
+        <p id="result"></p>
+    </div>    
+</body>
+<script>
+    let weight = document.getElementById('weight');
+    let height = document.getElementById('height');
+    let result = document.getElementById('result')
+    function checkBMI(){
+        weight = Number(weight.value)
+        height = Number(height.value);
+        height = height/100
+        let BMI = (weight) / (height * height)
+        BMI = BMI.toFixed(1);
+        let ans = "";
+        if (BMI <= 18.4){
+            ans = "UnderWeight.";
+        }
+        else if(BMI >= 18.5 && BMI <= 24.9){
+            ans = "Normal Weight.";
+        }
+        else if(BMI >= 25 && BMI <= 29.9){
+            ans = "Overweight.";
+        }
+        else if(BMI >= 30){
+            ans = "Obese.";
+        }
+        result.innerHTML = "Your BMI is " +BMI+" which means You are " + ans
+        
+    }
+</script>
+</html>
