@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+	<input type="text" name="name" id="name">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	<script type="text/javascript">
+        let name = document.getElementById("name")
+        let gender = document.getElementById("gender")
+        let email = document.getElementById("email")
+        let mobile = document.getElementById("mobile")
+        let dName = document.getElementById("dName")
+        let dGender = document.getElementById("dGender")
+        let dEmail = document.getElementById("dEmail")
+        let dMobile = document.getElementById("dMobile")
+		function showName() {
+            dName.innerText = name.value
+		}
+
+		function showGender() {
+            dGender.innerText = gender.value
+		}
+
+		function showEmail() {
+            dEmail.innerText = email.value
+		}
+
+		function showMobile() {
+            dMobile.innerText = mobile.value
+		}
+
+		function resetForm() {
+            name.value = "";
+            gender.value = "";
+            email.value = "";
+            mobile.value = "";
+		}
+
+		function resetDisplay() {
+            dName.innerText = "NAME";
+            dGender.innerText = "GENDER";
+            dEmail.innerText = "EMAIL";
+            dMobile.innerText = "MOBILE";
+        }
+	</script>
+</body>
+</html>
