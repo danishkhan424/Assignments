@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage</title>
+    <style>
+        #container{
+          margin: 0;
+          padding: 0;
+          height: 90vh;
+            display: flex;
+            justify-content: space-around;
+            border: 10px solid rgb(2, 162, 255);
+            font-size: 23px;
+        }
+        td, th{
+            text-align: center;
+            
+            width: 200px;
+            border: 1px solid rgb(85, 85, 85);
+        }
+        label{
+            margin-bottom: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div>
+          <label for="name"
+            >username:
+            <input
+              type="text"
+              placeholder="Enter name here"
+              name=""
+              id="name" /></label
+          ><br>
+          <label for="age"
+            >age:
+            <input
+              type="number"
+              placeholder="Enter age here"
+              name=""
+              id="age" /></label
+          ><br>
+          <input type="submit" onclick="display()" value="Submit" /><br>
+        <button onclick="displaydata()">Display Data</button><br>
+        <button onclick="reload()">Reload</button>
+      </div>
+      <div>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="script.js"></script>
