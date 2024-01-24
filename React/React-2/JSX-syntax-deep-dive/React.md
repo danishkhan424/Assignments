@@ -16,6 +16,6 @@ Create a React component that demonstrates various capabilities of JSX, includin
 
 #### Deliverables:
 
-- A JSXShowcase component demonstrating different JSX features.
+- A `JSXShowcase` component demonstrating different JSX features.
 - Clear examples of element rendering, JavaScript integration, and conditional rendering within JSX.
 - Code should be well-commented to explain each JSX feature being demonstrated.
