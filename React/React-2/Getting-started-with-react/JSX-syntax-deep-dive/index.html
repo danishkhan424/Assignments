@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSX Assignment-2</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+      // JSX code here
+
+      function JSXShowcase() {
+        // Declare and initialize variables--------------
+        const name = "Danish Khan";
+        const greet = () => alert("Hello, React!");
+        const colors = ["red", "green", "blue"];
+        let isLoggedIn = true;
+        
+        // Details component for conditional rendering--------------
+        function Details() {
+            return (
+                // Using React.Fragment to group multiple elements in one JSX--------------
+                <React.Fragment>
+                    <p>Welcome back!</p>
+                    <p>Name: {name}</p>
+                    <button onClick={greet}>Greeting</button>
+                    <ul>
+                        {colors.map((color) => (
+                            <li>{color}</li>
+                            ))}
+                            </ul>
+                            </React.Fragment>
+                            );
+                        }
+            
+        return (
+            // JSX conditional rendering
+          <React.Fragment>
+            {isLoggedIn ? <Details /> : <button>Login</button>}
+          </React.Fragment>
+        );
+      }
+
+      // ReactDOM rendering the JSXShowcase component to the root element --------------
+      const root = document.getElementById("root");
+      ReactDOM.render(<JSXShowcase />, root);
+    </script>
+  </body>
+</html>

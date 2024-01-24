@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Code goes here
+
+    const root = document.getElementById("root");
+    const TodoList = ({
+      items,
+      handleDelete,
+      handleComplete,
+      deleted,
+      completed,
+    }) => {
+      const list = items.map((item, i) => {
+        return (
+          <li key={i}>
+            {item}&nbsp;&nbsp;
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              onChange={() => handleComplete(i)}
+            />
+            &nbsp;&nbsp;
+            <button onClick={() => handleDelete(i)}>Delete</button>
+          </li>
+        );
+      });
+      const deletedList = deleted.map((item, i) => {
+        return <li key={i}>{item}</li>;
+      });
+      const completedList = completed.map((item, i) => {
+        return <li key={i}>{item}</li>;
+      });
+      const tasks = (
+        <ul>
+          Tasks to Do
+          {list}
+        </ul>
+      );
+      let Delete = (
+        <ul>
+          Deleted Tasks
+          {deletedList}
+        </ul>
+      );
+      let Complete = (
+        <ul>
+          Completed Tasks
+          {completedList}
+        </ul>
+      );
+      return (
+        <div>
+          {list.length !== 0 ? tasks : null}
+          {deletedList.length !== 0 ? Delete : null}
+          {completedList.length !== 0 ? Complete : null}
+        </div>
+      );
+    }
+
+    const TodoApp = () => {
+      const [value, setValue] = React.useState("");
+      const [list, setList] = React.useState([]);
+      const [deleted, setDeleted] = React.useState([]);
+      const [completed, setCompleted] = React.useState([]);
+      const handleChange = (e) => {
+        setValue(e.target.value);
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setList([...list, value]);
+        setValue("");
+      };
+      const handleDelete = (id) => {
+        setList(list.filter((item, i) => i !== id));
+        setDeleted([...deleted, list[id]]);
+      };
+      const handleComplete = (id) => { 
+        setCompleted([...completed, list[id]]);
+        setList(list.filter((item, i) => i !== id));
+        
+      };
+      return (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={value} onChange={handleChange} />
+            <button type="submit">Add</button>
+          </form>
+          <TodoList
+            items={list}
+            deleted={deleted}
+            completed={completed}
+            handleDelete={handleDelete}
+            handleComplete={handleComplete}
+          />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<TodoApp />, root);
+  </script>
+</html>
