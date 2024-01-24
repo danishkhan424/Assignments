@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Intro</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+<script
+  crossorigin
+  src="https://unpkg.com/react@18/umd/react.development.js"
+></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const container = {
+                      border: "2px solid",
+                      fontSize: "35px",
+                      backgroundColor: "rgb(255,228,196)"
+                    }
+
+  const parent = {
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: "-40px",
+                  height: "200px"
+                }                  
+  const child = {
+                  width: "150px",
+                  height: "150px",
+                  border: "2px solid",
+                  margin: "10px"
+                }
+
+  const Element = React.createElement("div",{id: "container", style: container},"parent", 
+                  React.createElement("div",{id:"parent", style: parent}, [React.createElement("div",{style: {backgroundColor: "red",...child}},1),React.createElement("div",{style:{backgroundColor: "yellow",...child}},2),React.createElement("div",{style:{backgroundColor: "green",...child}},3),React.createElement("div",{style:{backgroundColor: "purple",...child}},4)]))
+
+  ReactDOM.render(Element, document.getElementById("root"))
+</script>
