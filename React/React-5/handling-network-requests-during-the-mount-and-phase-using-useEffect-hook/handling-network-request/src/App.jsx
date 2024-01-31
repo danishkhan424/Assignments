@@ -17,7 +17,7 @@ function App() {
       let data = await res.json();
       setData(data);
     } catch (error) {
-      setErr(error);
+      setErr(error.message);
     } finally {
       setIsLoading(false);
     }
@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       {isLoading && <h1>Loading...</h1>}
-      {err && <h1>Something went wrong...</h1>}
+      {err && <h1>{err}</h1>}
       {!isLoading && !err && (
         <>
           {data.map((post) => (
