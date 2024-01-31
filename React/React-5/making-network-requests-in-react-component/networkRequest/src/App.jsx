@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState(null);
-  const api = "https://jsonpaceholder.typicode.com/posts";
+  const api = "https://jsonplaceholder.typicode.com/posts";
 
   async function fetchData() {
     setIsLoading(true);
