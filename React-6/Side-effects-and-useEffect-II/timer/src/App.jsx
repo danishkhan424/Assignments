@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      {!showComponent && <p>Click the Toggle button to show the timer</p>}
+      {!showComponent && <h2>Click the Toggle button to show the timer</h2>}
       <button onClick={() => setShowComponent(!showComponent)}>Toggle</button>
-      {showComponent && <><Timer /> <p>Click the Toggle button to hide the timer</p></>}
+      {showComponent && <Timer />}
     </>
   );
 }
