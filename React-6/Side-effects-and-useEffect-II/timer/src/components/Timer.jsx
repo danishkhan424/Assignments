@@ -24,10 +24,11 @@ function Timer() {
   }, [isActive]);
   return (
     <>
-      <h3>Countdown timer is {count}</h3>
-          <button onClick={() => setIsActive(!isActive)}>Pause</button>
-          <button onClick={() => setCount(20)}>Reset</button>
-          <button onClick={()=> setIsActive(true)}>Resume</button>
+      <h2>Timer left is {count}</h2>
+      <button onClick={() => setIsActive(!isActive)}>Pause</button>
+      <button onClick={() => setCount(20)}>Reset</button>
+      <button onClick={() => setIsActive(true)}>Resume</button>
+      <h4>Click the Toggle button to hide the timer</h4>
     </>
   );
 }
