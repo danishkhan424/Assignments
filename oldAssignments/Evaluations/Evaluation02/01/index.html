@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Lab</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      #main {
+        /* border: 2px dashed black; */
+        width: 90%;
+        margin: auto;
+      }
+      #parent1 {
+        /* border: 1px dashed red; */
+        display: flex;
+        /* justify-content: space-between; */
+      }
+      #parent2 {
+        /* border: 1px dashed red; */
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 1024px) {
+        #parent2 {
+          font-size: small;
+        }
+        #nav {
+          font-size: small;
+          font-weight: bold;
+          justify-content:space-between;
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        #parent2 {
+          margin-top: 0;
+          display: flex;
+          flex-direction: column;
+          font-size: medium;
+        }
+        #parent1 {
+          /* display: flex; */
+          flex-direction: column;
+        }
+        #nav {
+          margin-top: 10px;
+          /* border: 1px solid green; */
+          font-weight: bold;
+          justify-content:space-between;
+          gap: 15px
+          /* padding-left: 60px; */
+        }
+      }
+      h1 {
+        margin-block-start: auto;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      h5 {
+        color: rgb(74, 133, 252);
+        margin-block-end: 10px;
+        font-weight: 800;
+      }
+      p {
+        color: gray;
+        line-height: 30px;
+        letter-spacing: 1px;
+        /* font-weight: 500; */
+      }
+      @media screen and (min-width: 768px) {
+        #nav {
+        justify-content: space-around;
+        }
+      }
+
+      #video {
+        display: flex;
+        align-items: center;
+      }
+      #nav > div > a {
+        /* border: 1px dashed blue; */
+        font-weight: bold;
+        text-transform: capitalize;
+        color: black;
+        text-decoration: none;
+      }
+      #nav > div > a:hover {
+        color: rgb(74, 133, 252);
+      }
+      #parent1 > div {
+        width: 47%;
+        /* border: 1px dashed green; */
+        display: flex;
+        align-items: center;
+      }
+      #parent2 > div {
+        /* border: 1px dashed green; */
+        width: 1fr;
+        padding-right: 40px;
+      }
+      #parent1 > div > strong {
+        color: white;
+        padding: 12px;
+        font-size: 30px;
+        background-image: linear-gradient(
+          135deg,
+          rgb(204, 77, 231) 0%,
+          rgb(42, 124, 228) 100%
+        );
+      }
+      #child2 {
+        width: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      @media screen and (max-width: 1024px) {
+        #child2 > div {
+          width: 160px;
+        }
+        #child2 {
+          gap: 0;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        #child2 > div {
+          width: 200px;
+          gap: 40px;
+        }
+      }
+      iframe {
+        padding: 0 30px 0 0;
+        width: 250px;
+      }
+      .pic {
+        /* border: 1px solid navy; */
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pic > img {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="parent1">
+        <div>
+          <strong>StudyLab</strong>
+        </div>
+        <div id="nav">
+          <div><a href="">Home</a></div>
+          <div><a href="">about</a></div>
+          <div><a href="">course</a></div>
+          <div><a href="">instructor</a></div>
+          <div><a href="">blog</a></div>
+          <div><a href="">contact</a></div>
+        </div>
+      </div>
+      <div id="parent2">
+        <div id="child1">
+          <div>
+            <br /><br />
+            <h5>WELCOME TO STUDYLAB</h5>
+            <h1>We Are StudyLab An Online Learning Center</h1>
+            <p>
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia. It is a paradisematic country, in
+              which roasted parts of sentences fly into your mouth.
+            </p>
+            <br />
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts. Separated
+              they live in Bookmarksgrove right at the coast of the Semantics, a
+              large language ocean.
+            </p>
+          </div>
+          <div id="video">
+            <iframe
+              src="https://www.youtube.com/embed/watch?v=0gAganArl-g&list=PLD6vB9VKZ11n6ZKwDuFXCmePhfi3p_Zl2&index=2"
+              frameborder="0"
+            >
+            </iframe>
+            <h3>Learn anything from StudyLab, Watch video</h3>
+          </div>
+        </div>
+        <div id="child2">
+          <div>
+            <div class="pic" style="background-color: rgb(74, 133, 251)">
+              <img
+                src="https://api.iconify.design/fluent-mdl2/content-settings.svg?color=white"
+                alt=""
+              />
+            </div>
+            <h3>Top Quality Content</h3>
+            <p>A small river named Duden flows by their place and supplies</p>
+          </div>
+          <div>
+            <div class="pic" style="background-color: rgb(228, 73, 173)">
+              <img
+                src="https://api.iconify.design/fluent-mdl2/telemarketer.svg?color=white"
+                alt=""
+              />
+            </div>
+            <h3>Highly Skilled Instructor</h3>
+            <p>A small river named Duden flows by their place and supplies</p>
+          </div>
+          <div>
+            <div class="pic" style="background-color: rgb(252, 153, 38)">
+              <img
+                src="https://api.iconify.design/fluent-mdl2/open-enrollment.svg?color=white"
+                alt=""
+              />
+            </div>
+            <h3>World Class & Quiz</h3>
+            <p>A small river named Duden flows by their place and supplies</p>
+          </div>
+          <div>
+            <div class="pic" style="background-color: rgb(38, 210, 200)">
+              <img
+                src="https://api.iconify.design/fluent-mdl2/verified-brand.svg?color=white"
+                alt=""
+              />
+            </div>
+            <h3>Get Certified</h3>
+            <p>A small river named Duden flows by their place and supplies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>
