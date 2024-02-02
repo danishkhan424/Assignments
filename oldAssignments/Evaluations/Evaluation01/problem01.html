@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Evaluation 01</title>
+
+    <style>
+        body{
+            
+        }
+        *{
+            border: 1px dashed;
+        }
+        .children{
+            border: 1px solid;
+        }
+        span{
+            border: none;
+        }
+        #grandfather{
+            /* border: 1px dashed ; */
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            margin-top: 100px;
+        }
+
+                        /* for father div */
+
+        #father{
+            /* border: 1px dashed red; */
+            width: 45%;
+            display: flex;
+            padding: 18px 0 18px;
+        }
+                         /* for person 1 */
+        #person{
+            /* border: 1px dashed blue; */
+            width:53%;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 18px 0 18px;
+        }
+        #person > div{
+            /* border: 1px solid; */
+            height: px;
+            width: 16%;
+
+        }
+        #person > div:last-child{
+            /* border: 1px solid; */
+            width: 22%;
+            
+        }
+        #person > div:last-child > div{
+            /* border: 1px dashed; */
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            font-size: 48px;
+        }
+        
+
+        
+                         /* for uncle div */
+
+        #uncle{
+            /* border: 1px dashed red; */
+            width:45%;
+            text-align: center;
+
+        }
+        #uncle > div{
+            /* border: 1px dashed blue; */
+            width: 92%;
+            margin: auto;
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+        #uncle > :nth-last-child(2) > div{
+            /* border: 1px solid; */
+            width: 92%;
+            margin: auto;
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+        #uncle > div > div :first-child + div{
+
+            background-color: orange;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+            line-height: 40px;
+
+        }
+        
+        #uncle > div > div :first-child + div + div{
+
+            background-color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+            line-height: 40px;
+            color: blue;
+            font-size: 48px;
+        }
+        #uncle > div > div :first-child + div + div + div{
+
+            background-color: green;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 48px;
+        }
+        #uncle > div > div > div {
+            border: 1px dashed;
+            width: 92%;
+            margin: auto;
+            font-size: 48px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div id="grandfather"> 
+
+        <span>Grandfather</span>
+
+        <div id="father">
+            <span>Father</span>
+            <div id="person">
+                <span>Person-1</span>
+                <div class="children">
+                    <span>child-1</span>
+                </div>
+                
+                <div class="children">
+                    <span>child-2</span>
+                </div>
+                
+                <div class="children">
+                    
+                    <span>child-3</span>
+                    <div>1</div>
+                    
+                    <div>2</div>
+                    
+                    <div>3</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="uncle">
+
+            <span>Uncle</span>
+
+            <div class="person">  
+
+                <span>Person-1</span>
+
+            </div>
+            
+            <div class="person">
+
+                <span>Person-2</span>
+
+                <div class="children">
+
+                    <span>Child-1</span>   
+
+                </div>
+                
+                <div class="children">
+
+                    <span>Child-2</span>
+
+                    <div>1</div>
+                    
+                    <div>2</div>
+                    
+                    <div>3</div>
+
+                </div>
+                
+                <div class="children">
+
+                    <span>Child-3</span>
+
+                </div>
+
+            </div>
+            
+            <div class="person">
+                <span>Person-3</span>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
