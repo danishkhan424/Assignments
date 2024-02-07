@@ -4,7 +4,7 @@ function Vehicle(brand, model, speed, fuelType) {
   this.brand = brand;
   this.model = model;
   this.speed = speed;
-  this.fuelType = fuelType;
+  this.fuelType = fuelType; 
 }
 
 // Using the prototype, add common methods to the Vehicle object like accelerate(), brake(), and refuel().
