@@ -1,13 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Document</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="container">
+      <input type="text" id="input" placeholder="write text here" />
+      <button type="submit" id="submit">Add</button>
+
+      <h2 id="display">Text:</h2>
+    </div>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+  <script>
+    const CHANGE_TEXT = "CHANGE_TEXT";
+
+    function reducer(state = "", action) {
+      switch (action.type) {
+        case CHANGE_TEXT:
+          return action.payload;
+
+        default:
+          return state;
+      }
+    }
+    const store = Redux.createStore(reducer);
+
+    const { dispatch, getState, subscribe } = store;
+
+    document.getElementById("submit").addEventListener("click", () => {
+      const inputValue = document.getElementById("input").value;
+
+      dispatch({
+        type: CHANGE_TEXT,
+        payload: inputValue,
+      });
+
+      document.getElementById("input").value = "";
+    });
+    function render() {
+      const display = (document.getElementById("display").textContent = `Text: ${getState()}`);
+    }
+
+    subscribe(render);
+  </script>
 </html>
