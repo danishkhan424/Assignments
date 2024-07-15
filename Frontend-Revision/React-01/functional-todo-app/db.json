@@ -1,0 +1,11 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "title": "Todo 1",
+            "status": false,
+            "description": "Todo 1 description",
+            "date&time": "2020-01-01 00:00:00"
+        }
+    ]
+}

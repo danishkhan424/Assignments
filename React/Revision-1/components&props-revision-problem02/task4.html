@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your React code will go here
+
+      const Container = ({ children, borderColor }) => {
+        return (
+          <div
+            style={{
+              padding: "25px",
+              margin: "25px",
+              border: `1px solid ${borderColor}`,
+            }}
+          >
+            {children}
+          </div>
+        );
+      };
+      const childs = (
+        <div>
+          <p>Content</p>
+        </div>
+      );
+
+      const App = () => {
+        return (
+            <div>
+                <Container children={childs} borderColor="blue" />
+            <Container children={childs} borderColor="green" />
+            <Container children={childs} borderColor="red" />
+            <Container children={childs} borderColor="tan" />
+            <Container children={childs} borderColor="brown" />
+            <Container children={childs} borderColor="purple" />
+            </div>
+        );
+      };
+
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
