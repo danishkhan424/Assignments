@@ -1,0 +1,35 @@
+1. What is a NoSQL Database, and explain the types of NoSQL database?  
+   ANS: NoSQL databases are non-relational databases designed for large-scale data storage and real-time web applications. Types include Document-based (e.g., MongoDB), Key-Value (e.g., Redis), Column-based (e.g., Cassandra), and Graph-based (e.g., Neo4j).
+
+2. What is the difference between SQL and NoSQL databases?  
+   ANS: SQL databases are relational, use structured query language (SQL), and store data in tables with fixed schemas. NoSQL databases are non-relational, use various data models (document, key-value, column, graph), and provide flexible schemas.
+
+3. How to choose between MongoDB and MySQL based on your requirements?  
+   ANS: Choose MongoDB for schema flexibility, horizontal scalability, and handling unstructured data. Choose MySQL for structured data, ACID compliance, and complex queries with strong consistency.
+
+4. What are collections and documents in a MongoDB database?  
+   ANS: Collections are analogous to tables in relational databases and contain multiple documents. Documents are individual records in a collection, stored in a JSON-like format.
+
+5. What is BSON? What is the difference between BSON and JSON?  
+   ANS: BSON (Binary JSON) is a binary representation of JSON-like documents. BSON includes additional data types and is more efficient for data storage and retrieval, while JSON is text-based and used for data interchange.
+
+6. What are MongoDB Compass and MongoDB Shell used for?  
+   ANS: MongoDB Compass is a graphical user interface for managing MongoDB databases. MongoDB Shell is a command-line interface for executing MongoDB commands and queries.
+
+7. How to create collections in MongoDB?  
+   ANS: Use `db.createCollection("collectionName")` or simply insert a document into a non-existent collection to create it automatically.
+
+8. What is the difference between insertMany and insertOne?  
+   ANS: `insertOne` inserts a single document into a collection, while `insertMany` inserts multiple documents in one command.
+
+9. What is the difference between deleteOne and deleteMany?  
+   ANS: `deleteOne` deletes the first document that matches the filter criteria, while `deleteMany` deletes all documents that match the filter criteria.
+
+10. How to read data in MongoDB? What is the difference between find and findOne?  
+    ANS: Use `find` to retrieve multiple documents that match the query criteria, and `findOne` to retrieve only the first document that matches the query criteria.
+
+11. What is $set in MongoDB?  
+    ANS: `$set` is an update operator used to modify the value of a field in a document. It adds the field if it doesn't exist or updates the field if it does.
+
+12. How to filter data using MongoDB?  
+    ANS: Use the `find` method with a query object to filter documents, e.g., `db.collection.find({ field: value })`.
