@@ -1,0 +1,5 @@
+*bin
+*obj
+.C#.sln
+.vs
+practice
