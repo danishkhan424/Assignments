@@ -125,7 +125,7 @@
 
     ```
 
-## Medium Level (Complex JOINS & Aggregations)
+# Medium Level (Complex JOINS & Aggregations)
 
 ## Question-01
 
@@ -253,10 +253,160 @@
 
 ## Question-05 - Mastering Aggregations with HAVING & JOINS
 
-## Question-01
-## Question-02
-## Question-03
-## Question-04
-## Question-05
+- Find total revenue per region, but only for regions where revenue exceeds $10,000.
+    ```sql
+    SELECT region, SUM(quantity * price) AS total_revenue
+    FROM sales
+    GROUP BY region
+    HAVING total_revenue > 10000;
+    ```
+
+- Retrieve the lowest revenue-generating product.
+    ```sql
+    SELECT product_name, SUM(quantity * price) AS total_revenue
+    FROM sales
+    GROUP BY product_name
+    ORDER BY total_revenue ASC
+    LIMIT 1;
+    ```
+- Get the monthly revenue for the past 6 months.
+    ```sql
+    SELECT DATE_FORMAT(sale_date, '%Y-%m') AS month, 
+       SUM(quantity * price) AS total_revenue
+    FROM sales
+    WHERE sale_date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+    GROUP BY month
+    ORDER BY month ASC;
+
+    ```
+# Hard Level (Advanced JOINS & Real-World Scenarios)
+
+## Question-01 - Mastering SQL Joins: Employees, Departments, and Managers
+- Retrieve all employees with their department names and managers.
+    ```sql
+    SELECT e.emp_id, e.name AS employee_name, e.salary, 
+       d.dept_name, m.manager_name, m.bonus
+    FROM employees e
+    JOIN departments d ON e.department_id = d.department_id
+    JOIN managers m ON d.manager_id = m.manager_id;
+
+    ```
+
+- Find employees who earn more than their department’s average salary.
+    ```sql
+    SELECT e.emp_id, e.name,e.salary, d.dept_name, avg_dept.dept_avg_salary
+    FROM employees e
+    JOIN departments d ON e.department_id = d.department_id
+    JOIN (
+        SELECT department_id, AVG(salary) AS dept_avg_salary
+        FROM employees 
+        GROUP BY department_id
+    ) avg_dept ON e.department_id = avg_dept.department_id
+    WHERE avg_dept.dept_avg_salary < e.salary;
+    ```
+
+- Calculate the total salary expense per manager, including bonus amounts.
+    ```sql
+    SELECT m.manager_id, m.manager_name, SUM(e.salary) + m.bonus AS total_expence
+    FROM managers m
+    JOIN employees e ON m.manager_id = e.manager_id
+    GROUP BY m.manager_id;
+    ```
+
+## Question-02 - Complex Many-to-Many Relationship: Student-Course Enrollments
+- Retrieve all students along with their enrolled courses.
+    ```sql
+    SELECT s.student_id, s.name, GROUP_CONCAT(c.title SEPARATOR ', ') AS enrolled_courses
+    FROM students s
+    LEFT JOIN enrollments e ON e.student_id  = s.student_id
+    LEFT JOIN courses c ON c.course_id = e.course_id
+    GROUP BY s.student_id;
+    ```
+
+- Find students who are enrolled in more than 3 courses.
+    ```sql
+    SELECT s.student_id, s.name, COUNT(e.course_id) AS total_courses
+    FROM students s
+    JOIN enrollments e ON s.student_id = e.student_id
+    GROUP BY s.student_id
+    HAVING COUNT(e.course_id) > 3;
+    ```
+
+- Get the highest and lowest grades for each course.
+    ```sql
+    SELECT c.course_id, c.title AS course_title, 
+       MAX(e.grade) AS highest_grade, 
+       MIN(e.grade) AS lowest_grade
+    FROM courses c
+    JOIN enrollments e ON e.course_id = c.course_id
+    GROUP BY c.course_id;
+    ```
+
+
+## Question-03 - E-commerce Data Analysis with JOINS & Aggregation
+
+customers(customer_id, name, email)
+
+orders(order_id, customer_id, total_amount, order_date)
+
+order_items(order_item_id, order_id, product_id, 
+quantity, price)
+
+products(product_id, product_name, category, supplier_id)
+
+- Find the total revenue per customer, including product details.
+    ```sql
+    SELECT c.customer_id, 
+       c.name, 
+       p.product_name, 
+       p.category, 
+       SUM(oi.quantity * oi.price) AS total_revenue
+    FROM customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+    JOIN order_items oi ON o.order_id = oi.order_id
+    JOIN products p ON oi.product_id = p.product_id
+    GROUP BY c.customer_id, c.name, p.product_name, p.category;
+
+    ```
+
+- Retrieve the top 5 customers based on total spending.
+    ```sql
+    SELECT c.customer_id, 
+       c.name, 
+       SUM(oi.quantity * oi.price) AS total_spent
+    FROM customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+    JOIN order_items oi ON o.order_id = oi.order_id
+    GROUP BY c.customer_id, c.name
+    ORDER BY total_spent DESC
+    LIMIT 5;
+    ```
+
+- Get the most profitable product category.
+    ```sql
+    SELECT p.category, 
+       SUM(oi.quantity * oi.price) AS total_revenue
+    FROM order_items oi
+    JOIN products p ON oi.product_id = p.product_id
+    GROUP BY p.category
+    ORDER BY total_revenue DESC
+    LIMIT 1;
+
+    ```
+
+- Find customers who purchased products from at least 3 different categories.
+    ```sql
+    SELECT c.customer_id, 
+       c.name, 
+       COUNT(DISTINCT p.category) AS unique_categories
+    FROM customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+    JOIN order_items oi ON o.order_id = oi.order_id
+    JOIN products p ON oi.product_id = p.product_id
+    GROUP BY c.customer_id, c.name
+    HAVING COUNT(DISTINCT p.category) >= 3;
+
+    ```
+
 
 
