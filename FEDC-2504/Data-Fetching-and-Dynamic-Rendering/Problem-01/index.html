@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch and Display Users</title>
+</head>
+<body>
+  <div id="container"></div>
+</body>
+</html>
+<script>
+  // Fetch and Display Users
+  const container = document.getElementById('container');
+
+  async function fetchUsers(URL) {
+    const response = await fetch(URL);
+    const data = await response.json();
+    showData(data);
+  }
+
+  function showData(data){
+    data.forEach(user =>{
+      const card = document.createElement('div');
+      const name = document.createElement('h3');
+      const email = document.createElement('a');
+      name.textContent = `${user.name}`;
+      name.addEventListener('click', () => {
+        alert(user.email)
+      })
+      name.style.cursor = "pointer";
+      email.textContent = "Email";
+      email.href = `mailto:${user.email}`;
+      card.appendChild(name);
+      card.appendChild(email);
+      container.appendChild(card);
+    })
+  }
+  fetchUsers("https://jsonplaceholder.typicode.com/users")
+  </script>
