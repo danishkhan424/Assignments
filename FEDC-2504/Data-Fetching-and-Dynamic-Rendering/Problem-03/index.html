@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  const container = document.getElementById("container");
+
+  const getData = async () => {
+    try {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      showError(error);
+    }
+  };
+  const showData = async () => {
+    const data = await getData();
+    data.forEach((product) => {
+      const card = document.createElement("div");
+      const title = document.createElement("h3");
+      const price = document.createElement("h4");
+      const img = document.createElement("img");
+      const btn = document.createElement("button");
+      card.classList.add("card");
+      btn.textContent = "View Details";
+      title.textContent = product.title;
+      price.textContent = `Price: ${product.price}$`;
+      img.src = product.image;
+      img.alt = product.title;
+      card.append(img, title, price, btn);
+      container.append(card);
+    });
+  };
+  const showError = (error) => {
+    const body = document.querySelector("body");
+    const errorDiv = document.createElement("div");
+    const pTag = document.createElement("p");
+    errorDiv.classList.add("error");
+    pTag.textContent = "Failed to fetch products. Please try again later";
+    errorDiv.append(pTag);
+    body.append(errorDiv);
+  };
+  showData();
+</script>
